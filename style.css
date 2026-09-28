@@ -1,0 +1,604 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    width: 100%;
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #351606;
+
+    font-family: Georgia, serif;
+}
+
+
+
+/* =========================
+   CIELO
+========================= */
+
+.sky {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 32%;
+
+    background:
+        linear-gradient(
+            to bottom,
+            #35103e,
+            #751957,
+            #3b9ff0
+        );
+
+    z-index: 1;
+}
+
+
+
+/* =========================
+   SOL
+========================= */
+
+.sun {
+
+    position: fixed;
+
+    top: 17%;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100px;
+
+    height: 100px;
+
+    border-radius: 50%;
+
+    background: #f5d72e;
+
+    box-shadow:
+        0 0 25px #f7e166,
+        0 0 60px #ff8c00;
+
+    z-index: 2;
+}
+
+
+
+
+
+/* =========================
+   CAMPO VERDE CON PASTITO
+========================= */
+
+.field {
+
+    position: fixed;
+
+    top: 32%;
+
+    left: 0;
+
+    width: 100%;
+
+    height: 68%;
+
+    /* Campo verde */
+    background:
+       
+
+    
+        /* Color del campo */
+        linear-gradient(
+            to bottom,
+            #48eea1,
+            hwb(112 6% 31%),
+            #227522
+        );
+
+    overflow: hidden;
+
+    z-index: 3;
+
+}
+
+
+
+/* =========================
+   GIRASOLES
+========================= */
+
+.sunflower {
+
+    position: absolute;
+
+    font-size: 55px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(var(--size));
+
+    cursor: pointer;
+
+    user-select: none;
+
+    z-index: 10;
+
+    /*
+       MOVIMIENTO DE VIENTO
+    */
+
+    animation-name: viento;
+
+    animation-iteration-count: infinite;
+
+    animation-timing-function: ease-in-out;
+
+}
+
+
+
+/* =========================
+   VIENTO
+========================= */
+
+@keyframes viento {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-3deg)
+            scale(var(--size));
+
+    }
+
+    25% {
+
+        transform:
+            translate(
+                calc(-50% - 3px),
+                calc(-50% + 1px)
+            )
+            rotate(2deg)
+            scale(var(--size));
+
+    }
+
+    50% {
+
+        transform:
+            translate(
+                calc(-50% + 3px),
+                calc(-50% - 1px)
+            )
+            rotate(4deg)
+            scale(var(--size));
+
+    }
+
+    75% {
+
+        transform:
+            translate(
+                calc(-50% - 2px),
+                calc(-50% + 1px)
+            )
+            rotate(-2deg)
+            scale(var(--size));
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(-3deg)
+            scale(var(--size));
+
+    }
+
+}
+
+
+
+/* =========================
+   CARTA
+========================= */
+
+.card {
+
+    position: fixed;
+
+    top: 50%;
+
+    left: 50%;
+
+    width: min(450px, 90%);
+
+    padding: 35px 40px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.7);
+
+    background:
+        rgba(25, 12, 12, .96);
+
+    border: 2px solid #f7683d;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    color: white;
+
+    box-shadow:
+        0 0 35px rgba(139, 245, 19, 0.7);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    z-index: 100;
+
+    transition: .4s ease;
+
+}
+
+
+
+/* CARTA APARECE */
+
+.card.mostrar {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+}
+
+
+
+/* FECHA */
+
+.date {
+
+    display: block;
+
+    margin-bottom: 18px;
+
+    color: #29f033;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 4px;
+
+}
+
+
+
+/* TITULO */
+
+.card h2 {
+
+    font-size: 25px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+/* TEXTO */
+
+.card p {
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    font-style: italic;
+
+}
+
+
+
+/* FIRMA */
+
+.signature {
+
+    margin-top: 18px;
+
+    color: #2a72f7;
+
+    font-weight: bold;
+
+}
+
+
+
+/* =========================
+   BOTÓN CERRAR
+========================= */
+
+.cerrar {
+
+    position: absolute;
+
+    top: 8px;
+
+    right: 12px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #ffd600;
+
+    font-size: 30px;
+
+    cursor: pointer;
+
+}
+
+
+.cerrar:hover {
+
+    color: white;
+
+}.sunflower {
+
+    position: absolute;
+
+    font-size: 55px;
+
+    transform:
+        translate(-50%, -50%)
+        scale(var(--size));
+
+    cursor: pointer;
+
+    user-select: none;
+
+    z-index: 10;
+
+    animation-name: viento;
+
+    animation-iteration-count: infinite;
+
+    animation-timing-function: ease-in-out;
+
+    filter:
+        drop-shadow(
+            0 4px 3px rgba(0,0,0,.45)
+        );
+}
+/* =========================
+   ESTRELLAS EN EL CIELO
+========================= */
+
+.sky::before,
+.sky::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+}
+
+/* MUCHAS ESTRELLAS */
+.sky::before {
+    background-image:
+        radial-gradient(circle, white 1px, transparent 2px),
+        radial-gradient(circle, #fff8b5 1px, transparent 2px),
+        radial-gradient(circle, white 2px, transparent 3px),
+        radial-gradient(circle, #ffffff 1px, transparent 2px);
+
+    background-size:
+        90px 80px,
+        130px 110px,
+        180px 150px,
+        230px 190px;
+
+    background-position:
+        10px 15px,
+        50px 30px,
+        100px 10px,
+        20px 80px;
+
+    opacity: .85;
+
+    animation: estrellas 4s ease-in-out infinite alternate;
+}
+
+
+/* ESTRELLAS PEQUEÑAS QUE BRILLAN */
+.sky::after {
+    background-image:
+        radial-gradient(circle, white 1px, transparent 2px),
+        radial-gradient(circle, #fff5a8 1px, transparent 2px),
+        radial-gradient(circle, white 1.5px, transparent 2px);
+
+    background-size:
+        150px 130px,
+        200px 170px,
+        270px 200px;
+
+    background-position:
+        30px 50px,
+        80px 20px,
+        150px 70px;
+
+    opacity: .6;
+
+    animation: brilloEstrellas 2s ease-in-out infinite alternate;
+}
+
+
+/* =========================
+   BRILLO DE LAS ESTRELLAS
+========================= */
+
+@keyframes estrellas {
+
+    0% {
+        opacity: .45;
+    }
+
+    50% {
+        opacity: .85;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes brilloEstrellas {
+
+    0% {
+        opacity: .25;
+    }
+
+    50% {
+        opacity: .8;
+    }
+
+    100% {
+        opacity: .35;
+    }
+}
+/* =================================
+   ADAPTACIÓN PARA TELÉFONOS
+================================= */
+
+@media (max-width: 600px) {
+
+    /* CAMPO */
+   .field {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+    overflow: visible;
+}
+
+
+    /* FLORES */
+    .sunflower {
+        font-size: calc(28px * var(--size));
+        transform-origin: center;
+        cursor: pointer;
+    }
+
+
+    /* CARTA */
+ .card {
+    width: 85%;
+    max-width: 500px;
+
+    max-height: 75vh;
+
+    overflow-y: auto;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    position: fixed;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+    /* FECHA / TEXTO PEQUEÑO */
+    .date {
+        font-size: 13px;
+        line-height: 1.4;
+    }
+
+
+    /* TÍTULO */
+    .card h2 {
+        font-size: 22px;
+        line-height: 1.3;
+    }
+
+
+    /* TEXTO */
+    .card p {
+        font-size: 15px;
+        line-height: 1.6;
+        text-align: justify;
+    }
+
+
+    /* FIRMA */
+    .signature {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+
+    /* BOTÓN CERRAR */
+    .cerrar {
+        width: 35px;
+        height: 35px;
+
+        font-size: 25px;
+
+        top: 8px;
+        right: 8px;
+    }
+
+}
+/* =================================
+   TELÉFONO
+================================= */
+
+@media (max-width: 600px) {
+
+    html,
+    body {
+        width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    body {
+        min-height: 100vh;
+    }
+
+    .field {
+        width: 100%;
+        min-height: 100vh;
+    }
+
+}
